@@ -5,9 +5,9 @@ const Octokit = require('@octokit/rest')
 const github = new Octokit({auth: process.env.GITHUB_TOKEN})
 
 const PACKAGES = [
-  {name: '@primer/css',         repo: 'primer/css'},
-  {name: '@primer/components',  repo: 'primer/components'},
-  {name: '@primer/octicons',    repo: 'primer/octicons'}
+  {name: '@primer/css', repo: 'primer/css'},
+  {name: '@primer/components', repo: 'primer/components'},
+  {name: '@primer/octicons', repo: 'primer/octicons'}
 ].map(pkg => {
   pkg.url = `https://github.com/${pkg.repo}`
   return pkg
@@ -21,7 +21,12 @@ module.exports = async () => {
     console.warn(`[${pkg.name}] got ${npmReleases.length} npm releases, ${githubReleases.length} github`)
     for (const npmRelease of npmReleases) {
       const {version, date} = npmRelease
-      const {major, minor, patch, prerelease: [preid]} = semver.parse(version)
+      const {
+        major,
+        minor,
+        patch,
+        prerelease: [preid]
+      } = semver.parse(version)
       if (!preid && patch === 0) {
         const tag = `v${version}`
         const githubRelease = githubReleases.find(release => release.tag_name === tag)
@@ -47,7 +52,7 @@ module.exports = async () => {
 }
 
 async function getNpmReleases(pkg) {
-  const {name, repo, url} = pkg
+  const {name, repo} = pkg
   const packageInfo = await fetch(`https://registry.npmjs.org/${name}`).then(res => res.json())
   return Object.keys(packageInfo.versions)
     .sort(semver.rcompare)
@@ -65,7 +70,5 @@ async function getNpmReleases(pkg) {
 
 async function getGitHubReleases(pkg) {
   const [owner, repo] = pkg.repo.split('/')
-  return await github.repos.listReleases({owner, repo})
-    .then(res => res.data)
+  return await github.repos.listReleases({owner, repo}).then(res => res.data)
 }
-
