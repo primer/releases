@@ -1,0 +1,22 @@
+{
+  "private": "@primer/releases",
+  "version": "0.0.0",
+  "description": "Get Primer design system release data from npm + GitHub",
+  "main": "index.js",
+  "scripts": {
+    "start": "micro",
+    "dev": "micro-dev"
+  },
+  "keywords": [],
+  "author": "GitHub, Inc.",
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/rest": "^16.28.7",
+    "micro": "^9.3.4",
+    "node-fetch": "^2.6.0",
+    "semver": "^6.3.0"
+  },
+  "devDependencies": {
+    "micro-dev": "^3.0.0"
+  }
+}
