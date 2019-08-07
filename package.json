@@ -1,5 +1,5 @@
 {
-  "private": "@primer/releases",
+  "name": "@primer/releases",
   "version": "0.0.0",
   "description": "Get Primer design system release data from npm + GitHub",
   "main": "index.js",
