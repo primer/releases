@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "name": "primer-releases",
+  "alias": "releases.primer.now.sh",
+  "build": {
+    "src": "server.js",
+    "use": "@now/node-server"
+  },
+  "env": {
+    "GITHUB_TOKEN": "@github-release-token"
+  }
+}

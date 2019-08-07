@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "description": "Get Primer design system release data from npm + GitHub",
   "main": "index.js",
+  "keywords": [],
+  "author": "GitHub, Inc.",
+  "license": "MIT",
   "scripts": {
     "start": "micro",
     "dev": "micro-dev"
   },
-  "keywords": [],
-  "author": "GitHub, Inc.",
-  "license": "MIT",
   "dependencies": {
     "@octokit/rest": "^16.28.7",
     "micro": "^9.3.4",

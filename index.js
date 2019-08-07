@@ -68,3 +68,4 @@ async function getGitHubReleases(pkg) {
   return await github.repos.listReleases({owner, repo})
     .then(res => res.data)
 }
+
