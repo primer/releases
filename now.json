@@ -1,7 +1,7 @@
 {
   "version": 2,
   "name": "primer-releases",
-  "alias": "releases.primer.now.sh",
+  "alias": "releases.primer.style",
   "build": {
     "src": "server.js",
     "use": "@now/node-server"
