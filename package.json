@@ -1,5 +1,5 @@
 {
-  "private": "@primer/releases",
+  "name": "@primer/releases",
   "version": "0.0.0",
   "description": "Get Primer design system release data from npm + GitHub",
   "main": "index.js",
@@ -8,7 +8,9 @@
   "license": "MIT",
   "scripts": {
     "start": "micro",
-    "dev": "micro-dev"
+    "dev": "micro-dev",
+    "lint": "eslint *.js api",
+    "test": "jest --passWithNoTests"
   },
   "dependencies": {
     "@octokit/rest": "^16.28.7",
@@ -17,6 +19,9 @@
     "semver": "^6.3.0"
   },
   "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-plugin-github": "^3.1.0-beta.4",
+    "jest": "^24.8.0",
     "micro-dev": "^3.0.0"
   }
 }
