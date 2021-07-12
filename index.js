@@ -5,9 +5,10 @@ const Octokit = require('@octokit/rest')
 const github = new Octokit({auth: process.env.GITHUB_TOKEN})
 
 const PACKAGES = [
-  {name: '@primer/css',         repo: 'primer/css'},
-  {name: '@primer/components',  repo: 'primer/components'},
-  {name: '@primer/octicons',    repo: 'primer/octicons'}
+  {name: '@primer/css',             repo: 'primer/css'},
+  {name: '@primer/components',      repo: 'primer/components'},
+  {name: '@primer/octicons',        repo: 'primer/octicons'},
+  {name: '@primer/view-components', repo: 'primer/view_components'}
 ].map(pkg => {
   pkg.url = `https://github.com/${pkg.repo}`
   return pkg
